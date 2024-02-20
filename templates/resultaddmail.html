@@ -20,10 +20,10 @@
   <h2>El correu pel nom <b>{{ nom }}</b> ha esta afegit com: <b>{{ correu }}</b></h2>
 {% endif %}
 <h4 class="text_enlace">
-  Pots afegir més correus a l'enllaç <a href="{{url_for('addmail')}}">ADDMAIL</a>,
+  Pots afegir més correus a l'enllaç <a href="{{('http://localhost:5000/mailadd')}}">ADDMAIL</a>,
 </h4>
 <h4 class="text-enlace2">
-  o pots consultar els correus a l'enllaç <a href="{{url_for('getmail')}}" target="_blank">GETMAIL</a>
+  o pots consultar els correus a l'enllaç <a href="{{('http://localhost:5000/mailadd')}}" target="_blank">GETMAIL</a>
 </h4>
 </div>
 </body>
