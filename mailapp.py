@@ -5,7 +5,7 @@ app = Flask(__name__)
 #URL arrel, si accedeixen a l'arrel, fem redirect a getmail
 @app.route("/")
 def inici():
-    return redirect('formgetmail.html')
+    return redirect(url_for('getmail'))
    
 #URL getmail, mostra formulari per introduir el nom 
 # quan omplim el formulari, mostra en una nova pàgina el resultat: el mail si l'ha trobat al diccionari o
@@ -27,14 +27,15 @@ def getmail():
 # Permet enllaçar a la URL getmail  
 @app.route('/addmail',methods = ['POST', 'GET'])
 def addmail():
-   if request.method == 'POST':
+   if request.method == 'POST':     
       modif=False
       nom = request.form['nom']  #ull! si no ve, això acaba amb error
+      correu = request.form["correu"]
       nom=nom.capitalize()
-      correu = ejercicio14.Añadir(nom)
+      correu = ejercicio14.Añadir(nom,correu)
       if 'modif' in request.form: #el checkbox és opcional 
-         modif = True
-      result_msg = ejercicio14.Añadir(nom, correu, modif)
+        modif = True
+      result_msg = ejercicio14.Añadir(nom, correu)
       return render_template('resultaddmail.html',nom = nom, correu=correu, result_msg = result_msg)
    else:
-      return render_template('formaddmail.html')
+      return render_template('formaddmail.html')     

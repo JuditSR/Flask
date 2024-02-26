@@ -62,19 +62,19 @@ mydb = mysql.connector.connect(
 #mydb.commit()
 #print(mycursor.rowcount, "filas insertadas")
 
-def BuscarUsuario(): 
+def BuscarUsuario(nombrebuscar): 
     mycursor = mydb.cursor()
-    nombrebuscar = input ("Introduce un nombre para buscar su correo electrónico: ")
+    #nombrebuscar = input ("Introduce un nombre para buscar su correo electrónico: ")
     buscar = "SELECT Correo FROM datos WHERE Nombre = '" + nombrebuscar + "'" 
     mycursor.execute(buscar)
     myresult = mycursor.fetchall()
     for x in myresult:
         print(x)
 
-def Añadir():
+def Añadir(nombre,correo):
 #Añadir usuario y correo
-    nombre = input("Introduce tu nombre: ")
-    correo = input("Introduce tu correo: ")
+    #nombre = input("Introduce tu nombre: ")
+    #correo = input("Introduce tu correo: ")
     mycursor = mydb.cursor()
     sql = "INSERT INTO datos (Nombre, Correo) VALUES (%s, %s)"
     val = (nombre, correo)
@@ -95,6 +95,7 @@ while True:
         print("\n1. Buscar correo")
         print("2. Añadir usuario y correo")
         print("3. Ver Tabla")
+        print("4. Salir")
         opcion= (int)(input("Introduce una opción: "))
         if opcion == 1:
             BuscarUsuario()
@@ -102,5 +103,7 @@ while True:
             Añadir()
         elif opcion == 3:
             VerDatos()
+        elif opcion == 4:
+            break
         else:
             print("Introduce un número válido")

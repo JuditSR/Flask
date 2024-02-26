@@ -13,7 +13,7 @@
     <div class="container">
     <h1 id="titulo"> SERVEI ACTUALITZACIÓ MAIL</h1>
     <h3> Introdueix el nom i el correu electrònic que vols afegir</h3>
-    <form action = "http://localhost:5000/mailapp" method = "post">
+    <form action = "http://localhost:5000/addmail" method = "post">
         <div class="mb-3 mt-3">
             <label for="nom" class="form-label required">Nom:</label>
             <input type="text" name="nom" id="nom" class="form-control" required/>
@@ -29,7 +29,7 @@
         <input type = "submit" value = "AFEGIR" class="btn btn-primary"/>
      </form>
      <h4 class="text-enlace">
-        Pots consultar els correus a l'enllaç <a href="{{('http://localhost:5000/mailadd')}}" target="_blank">GETMAIL</a>
+        Pots consultar els correus a l'enllaç <a href="{{('http://localhost:5000/getmail')}}" target="_blank">GETMAIL</a>
      </h4>
     </div>
 </body>
