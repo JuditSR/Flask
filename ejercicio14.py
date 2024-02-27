@@ -68,8 +68,10 @@ def BuscarUsuario(nombrebuscar):
     buscar = "SELECT Correo FROM datos WHERE Nombre = '" + nombrebuscar + "'" 
     mycursor.execute(buscar)
     myresult = mycursor.fetchall()
-    for x in myresult:
-        print(x)
+    if myresult is not None:
+        return myresult[0]  # Retorna el correo encontrado
+    else:
+        return "NOTROBAT"
 
 def Añadir(nombre,correo):
 #Añadir usuario y correo

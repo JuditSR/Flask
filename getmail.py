@@ -20,7 +20,7 @@ def buscar_correo(nombreinsertar):
 @app.route('/getmail',methods = ['POST', 'GET'])
 def getmail():
    if request.method == 'POST':
-      user = request.form['nm']
+      user = request.form['nom']
       correo = buscar_correo(user)
       if correo:
          return render_template('resultadogetmail.html',nombre = user, correo = correo)

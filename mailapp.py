@@ -32,7 +32,6 @@ def addmail():
       nom = request.form['nom']  #ull! si no ve, això acaba amb error
       correu = request.form["correu"]
       nom=nom.capitalize()
-      correu = ejercicio14.Añadir(nom,correu)
       if 'modif' in request.form: #el checkbox és opcional 
         modif = True
       result_msg = ejercicio14.Añadir(nom, correu)
