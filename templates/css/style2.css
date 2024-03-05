@@ -31,3 +31,20 @@ img {
     text-align: center;
 }
 
+.menuhorizontal {
+    overflow: hidden;
+    background-color: rgb(117, 117, 117);
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    display: inline;
+  }
+
+  .menuhorizontal a {
+    float: left;
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+  }
