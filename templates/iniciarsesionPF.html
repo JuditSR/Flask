@@ -14,8 +14,10 @@
     <h1 id="titulo"> INICIAR SESIÓN</h1>
     <h3> Introduce tus datos:</h3>
     <form action = "{{url_for('getmail')}}" method = "post">
-        <label for="correo" class="form-label required">Correo electrónico:</label>
-        <p><input type="email" name="correo" id="correo" class="form-control" required/></p>
+        <label for="nom" class="form-label required">Nombre:</label>
+        <p><input type="text" name="nom" id="nom"  class="form-control" required/></p>
+        <label for="nom" class="form-label required">Contraseña:</label>
+        <p><input type = "password" name = "contrasena" id="contrasena" class="form-control" required/></p>
         <p><input type = "submit" value = "Iniciar Sesión" class="btn btn-primary"/></p>
 
      </form>

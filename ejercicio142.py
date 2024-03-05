@@ -1,5 +1,19 @@
 import mysql.connector
 
+#Acceder al localhost y crear la base de datos.
+#mydb = mysql.connector.connect(
+#  host="localhost",
+#  user="root",
+#  password="",
+#)
+#mycursor = mydb.cursor()
+#mycursor.execute("CREATE DATABASE datosdb")
+
+#Comprobar que existe la base de datos
+#mycursor.execute("SHOW DATABASES")
+#for x in mycursor:
+#  print(x)
+
 #Conectarse a la base de datos
 mydb = mysql.connector.connect(
   host="localhost",
@@ -8,26 +22,66 @@ mydb = mysql.connector.connect(
   database="datosdb"
 )
 
-def BuscarUsuario(correo_buscar): 
+#Crear tabla
+#mycursor = mydb.cursor()
+#mycursor.execute("CREATE TABLE Datos (Nombre VARCHAR(255), Correo VARCHAR(255))")
+
+#Crear clave primaria
+#mycursor = mydb.cursor()
+#mycursor.execute("ALTER TABLE datos ADD PRIMARY KEY (Nombre)")
+
+#Insertar los datos
+#mycursor = mydb.cursor()
+#sql = "INSERT INTO datos (Nombre, Correo) VALUES (%s, %s)"
+#val = [
+#  ('Mercedes','mcast386@xtec.cat'),
+#  ('Rayane','rayane@rayane.sa'),
+#  ('Mohamed','moha@gmail.com'),
+#  ('Jad','jad@gmail.com'),
+#  ('Oriol','joam@gmail.com'),
+#  ('Elias','hola123@gmail.com'),
+#  ('Armau','arnau@gmail.com'),
+#  ('Asdrubal','asdrubal@gmail.com'),
+#  ('Adrian','pedrosanchez@asix2.com'),
+#  ('Eric','eric@gmail.com'),
+#  ('Emma','pacosanz@gmail.com'),
+#  ('nishwan','nishwan@gmail.com'),
+#  ('Javi','javi@gmail.com'),
+#  ('Novel','novelferreras49@gmail.com'),
+#  ('Bruno','elcigala@gmail.com'),
+#  ('David','argentino@gmail.com'),
+#  ('Judit','judit@gmail.com'),
+#  ('Joao','joao@gmail.com'),
+#  ('Laura','laura@gmail.com'),
+#  ('enrico','123@gmail.com'),
+#  ('Joel','joelcobre@gmail.com'),
+#  ('Aaron','aaron@gmail.com'),
+#  ('Moad','moad@gmail.com')
+#]
+#mycursor.executemany(sql, val)
+#mydb.commit()
+#print(mycursor.rowcount, "filas insertadas")
+
+def BuscarUsuario(nombrebuscar, contrasena): 
     mycursor = mydb.cursor()
-    buscar = "SELECT Correo FROM datos WHERE Correo = %s"
-    mycursor.execute(buscar, (correo_buscar,))
-    myresult = mycursor.fetchone()
-    if myresult is not None:
+    #nombrebuscar = input ("Introduce un nombre para buscar su correo electrónico: ")
+    buscar = "SELECT Correo FROM datos WHERE Nombre = '" + nombrebuscar + "'" 
+    mycursor.execute(buscar, (nombrebuscar, contrasena))
+    myresult = mycursor.fetchall()
+    if myresult:
         return myresult[0]  # Retorna el correo encontrado
     else:
         return "NOTROBAT"
 
-
-def Añadir(correo):
+def Añadir(nombre,correo, contrasena):
     mycursor = mydb.cursor()
-    sql = "INSERT INTO datos (Correo) VALUES (%s)"
-    val = (correo,) 
+    sql = "INSERT INTO datos (Nombre, Correo, Contrasena) VALUES (%s, %s, %s)"
+    val = (nombre, correo, contrasena)
     mycursor.execute(sql, val)
     mydb.commit()
     print("Fila insertada correctamente")
 
-
+#Ver datos de la tabla
 def VerDatos():
     mycursor = mydb.cursor()
     mycursor.execute("SELECT * FROM datos")

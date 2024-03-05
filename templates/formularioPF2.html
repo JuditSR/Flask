@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="css/style3.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulario">
+    <title>Formulario de uso</title>
+</head>
+<body>
+    <h1>Formulario Opcional de Uso</h1>
+    <p>Formulario para mejorar nuestra página web dependiendo para adaptarlo mejor al público</p>
+    <fieldset>
+        <form method="post">
+        <fieldset class="datosper">
+            <legend class=datos> <b>DATOS PERSONALES</b></legend>
+        <br>
+
+        <label for="Nombre">Nombre:</label>
+        <br>
+        <input type="text" id="Nombre" name="unNombre" required>
+        <br> <br>
+
+        <label for="Edad">Edad:</label>
+        <br>
+        <input type="number" id="Edad" name="unaEdad"> 
+
+        <br><br>
+
+        <label for="Email">Correo electrónico:</label>
+        <br>
+        <input type="email" id="Email" name="Correo" required>
+
+        <br><br>
+
+        </fieldset>
+
+        <fieldset class="Opiniones">
+        <legend class=Opiniones> <b>Opiniones</b></legend>
+        
+
+        <label for="Nota">Valoración sobre la página web</label>
+        <br>
+        <input type="range" name="valoracion" id="Nota" min="0" max="10">
+        <br>
+
+        <p>Comentarios:</p>
+        <textarea name="comentarios" id="comentarios" cols="30" rows="5"></textarea>
+        </fieldset>
+
+        <fieldset class="FechaEncuesta">
+            <legend class=Fencuesta> <b>FECHA DE LA ENCUESTA</b></legend>
+
+        <label for="Fecha">Fecha:</label>
+        <input type="date" id="Fecha" name="dia">
+        </fieldset>
+
+        <fieldset class="enviarf">
+            <input type="submit" value="Enviar" name="enviar" onclick="enviado()">
+            <input type="reset" value="Borrar" name="Borrar">
+        </fieldset>
+
+    </form>
+
+    </fieldset>
+
+    <script>
+        function enviado() {
+        alert("Encuesta Enviada");
+        }
+    </script>
+
+</body>
+</html>
