@@ -8,27 +8,31 @@ h2 {
     text-align: center;
 }
 
-p {
-    color:    #000000;
-    text-align: left;
-    font-size: 18px;
-}
-p img {
-    display: block;
-    margin: auto;
+h3 {
     text-align: center;
 }
 
+p {
+    color:    #000000;
+    font-size: 18px;
+    margin: 0 auto;
+    text-align: center;
+    width: 1000px;
+}
+
+
 body{
-    width:1000px;
+    
     margin:0px auto;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(233, 233, 233);
 }
 
 img {
     width: 500px;
     height: 450px;
     text-align: center;
+    margin: 0 auto;
+    display: block;
 }
 
 .menuhorizontal {
@@ -37,7 +41,7 @@ img {
     position: fixed; 
     top: 0;
     width: 100%;
-    display: inline;
+    display: block;
   }
 
   .menuhorizontal a {
